@@ -39,11 +39,11 @@ function App() {
       <MainContent />
 
       <UserProfile 
-        name="Alice" 
-        age="25" 
-        bio="Loves hiking and photography" 
+        name="David" 
+        age="36" 
+        bio="Loves reading and art" 
       />
-      
+
       <Footer />
     </>
   )
