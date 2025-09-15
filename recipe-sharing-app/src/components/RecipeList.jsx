@@ -1,27 +1,23 @@
 import React from 'react'
-import { useRecipeStore } from '../components/recipeStore'
-
+import { useRecipeStore } from './recipeStore'
 
 const RecipeList = () => {
-const recipes = useRecipeStore((state) => state.recipes)
+  const recipes = useRecipeStore((state) => state.recipes)
 
+  if (!recipes || recipes.length === 0) {
+    return <div>No recipes yet — add one above!</div>
+  }
 
-if (!recipes || recipes.length === 0) {
-return <div>No recipes yet — add one above!</div>
+  return (
+    <div>
+      {recipes.map((recipe) => (
+        <div key={recipe.id}>
+          <h3>{recipe.title}</h3>
+          <p>{recipe.description}</p>
+        </div>
+      ))}
+    </div>
+  )
 }
-
-
-return (
-<div className="recipe-list">
-{recipes.map((recipe) => (
-<article key={recipe.id} className="recipe-card">
-<h3>{recipe.title}</h3>
-<p>{recipe.description}</p>
-</article>
-))}
-</div>
-)
-}
-
 
 export default RecipeList
