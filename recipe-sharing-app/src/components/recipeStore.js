@@ -1,22 +1,21 @@
+// src/components/recipeStore.js
 import { create } from 'zustand'
 
-
 export const useRecipeStore = create((set) => ({
-// seed with an example so the UI shows something initially
-recipes: [
-{
-id: 1,
-title: 'Sample Pancakes',
-description: 'Easy fluffy pancakes — 3 ingredients: flour, milk, egg.'
-}
-],
+  recipes: [
+    { id: 1, title: 'Sample Pancakes', description: 'Easy fluffy pancakes — flour, milk, egg.' }
+  ],
 
+  addRecipe: (newRecipe) =>
+    set((state) => ({ recipes: [...state.recipes, newRecipe] })),
 
-// Add a recipe
-addRecipe: (newRecipe) =>
-set((state) => ({ recipes: [...state.recipes, newRecipe] })),
+  updateRecipe: (id, updates) =>
+    set((state) => ({
+      recipes: state.recipes.map((r) => (r.id === id ? { ...r, ...updates } : r))
+    })),
 
+  deleteRecipe: (id) =>
+    set((state) => ({ recipes: state.recipes.filter((r) => r.id !== id) })),
 
-// Replace the recipe list (useful if you want to hydrate from an API)
-setRecipes: (recipes) => set({ recipes })
+  setRecipes: (recipes) => set({ recipes })
 }))
