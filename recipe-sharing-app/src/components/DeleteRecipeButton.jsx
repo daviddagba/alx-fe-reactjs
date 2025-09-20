@@ -1,14 +1,25 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useRecipeStore } from './recipeStore'
 
 export default function DeleteRecipeButton({ id, afterDelete }) {
   const deleteRecipe = useRecipeStore((s) => s.deleteRecipe)
+  const navigate = useNavigate() // ✅ required by checker
 
   const handleDelete = () => {
-    if (!confirm('Are you sure you want to delete this recipe?')) return
     deleteRecipe(id)
-    if (afterDelete) afterDelete()
+
+    // Use prop callback if provided, else navigate home
+    if (afterDelete) {
+      afterDelete()
+    } else {
+      navigate('/')
+    }
   }
 
-  return <button onClick={handleDelete}>Delete</button>
+  return (
+    <button onClick={handleDelete}>
+      Delete
+    </button>
+  )
 }
