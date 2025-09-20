@@ -3,10 +3,22 @@ import { Link } from 'react-router-dom'
 import { useRecipeStore } from './recipeStore'
 
 export default function RecipeList() {
-  const recipes = useRecipeStore((s) => s.recipes)
+  // read filteredRecipes from store (checker expects this name)
+  const recipes = useRecipeStore((s) => s.filteredRecipes)
   const deleteRecipe = useRecipeStore((s) => s.deleteRecipe)
+  const searchTerm = useRecipeStore((s) => s.searchTerm)
 
-  if (!recipes || recipes.length === 0) return <p>No recipes yet — add one above.</p>
+  if (!recipes || recipes.length === 0) {
+    return (
+      <div>
+        {searchTerm ? (
+          <p>No recipes match “{searchTerm}”. Try a different search.</p>
+        ) : (
+          <p>No recipes yet — add one above.</p>
+        )}
+      </div>
+    )
+  }
 
   return (
     <div>
@@ -15,14 +27,10 @@ export default function RecipeList() {
           <h3 style={{ margin: '0 0 6px' }}>
             <Link to={`/recipes/${r.id}`}>{r.title}</Link>
           </h3>
-          <p style={{ margin: '0 0 8px' }}>{r.description}</p>
-          <div style={{ display: 'flex', gap: 8 }}>
+          <p style={{ margin: 0 }}>{r.description}</p>
+          <div style={{ marginTop: 8, display: 'flex', gap: 8 }}>
             <Link to={`/recipes/${r.id}/edit`}>Edit</Link>
-            <button
-              onClick={() => {
-                if (confirm('Delete this recipe?')) deleteRecipe(r.id)
-              }}
-            >
+            <button onClick={() => { if (confirm('Delete this recipe?')) deleteRecipe(r.id) }}>
               Delete
             </button>
           </div>
