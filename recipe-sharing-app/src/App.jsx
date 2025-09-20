@@ -1,24 +1,13 @@
 import React from 'react'
 import AddRecipeForm from './components/AddRecipeForm'
 import RecipeList from './components/RecipeList'
-import './index.css'
 
-
-const App = () => {
-return (
-<div className="app-container">
-<header>
-<h1>Recipe Sharing App</h1>
-</header>
-
-
-<main>
-<AddRecipeForm />
-<RecipeList />
-</main>
-</div>
-)
+export default function App() {
+  return (
+    <div style={{ maxWidth: 900, margin: '2rem auto', padding: '0 1rem', fontFamily: 'system-ui, sans-serif' }}>
+      <h1 style={{ textAlign: 'center' }}>Recipe Sharing App</h1>
+      <AddRecipeForm />
+      <RecipeList />
+    </div>
+  )
 }
-
-
-export default App
