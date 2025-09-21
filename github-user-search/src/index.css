@@ -1,3 +1,17 @@
+/* src/index.css */
+
+/* Tailwind directives (must come before your custom rules) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* small app overrides using Tailwind's @apply */
+.app { @apply p-6 max-w-4xl mx-auto; }
+.section-title { @apply text-xl font-semibold mb-2; }
+.user-card { @apply flex gap-4 items-start p-4 border rounded-lg bg-white shadow-sm; }
+
+/* --- existing custom styles (kept intact) --- */
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

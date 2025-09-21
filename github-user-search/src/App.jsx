@@ -3,8 +3,9 @@ import React, { useState } from 'react'
 import SearchBar from './components/SearchBar'
 import UserList from './components/UserList'
 import { searchUsers } from './services/githubService'
-import Search from './components/Search'
+import Search from './components/Search' // single-user lookup component
 import './App.css'
+import './index.css'
 
 export default function App() {
   const [query, setQuery] = useState('')
@@ -12,6 +13,7 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
+  // note: searchUsers expects an options object; pass { query: q } for compatibility
   async function handleSearch(q) {
     setQuery(q)
     if (!q) {
@@ -21,7 +23,9 @@ export default function App() {
     setLoading(true)
     setError(null)
     try {
-      const res = await searchUsers(q)
+      // if your service still expects a string, this object form is backward-compatible:
+      // our githubService will handle { query } correctly.
+      const res = await searchUsers({ query: q })
       setUsers(res.items || [])
     } catch (err) {
       setError(err.message || 'Search failed')
