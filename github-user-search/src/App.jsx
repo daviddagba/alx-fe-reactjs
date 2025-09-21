@@ -1,7 +1,10 @@
+// src/App.jsx
 import React, { useState } from 'react'
 import SearchBar from './components/SearchBar'
 import UserList from './components/UserList'
-import { searchUsers } from './services/github'
+import { searchUsers } from './services/githubService'
+import Search from './components/Search'
+import './App.css'
 
 export default function App() {
   const [query, setQuery] = useState('')
@@ -34,10 +37,22 @@ export default function App() {
       </header>
 
       <main>
-        <SearchBar onSearch={handleSearch} />
-        {loading && <p>Loading...</p>}
-        {error && <p role="alert">Error: {error}</p>}
-        <UserList users={users} />
+        {/* Search across users (multiple results) */}
+        <section className="multi-search">
+          <h2>Search users</h2>
+          <SearchBar onSearch={handleSearch} />
+          {loading && <p>Loading...</p>}
+          {error && <p role="alert">Error: {error}</p>}
+          <UserList users={users} />
+        </section>
+
+        <hr style={{ margin: '2rem 0' }} />
+
+        {/* Single-user lookup (detailed view) */}
+        <section className="single-search">
+          <h2>Lookup single user</h2>
+          <Search />
+        </section>
       </main>
     </div>
   )

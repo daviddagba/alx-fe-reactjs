@@ -22,3 +22,11 @@ body {
   border-radius: 6px;
   margin-bottom: 0.5rem;
 }
+
+/* minimal CSS rules */
+.search-section { max-width: 720px; margin: 0 auto; }
+.search-form { display:flex; gap:0.5rem; margin-bottom:1rem; }
+.search-form input { flex:1; padding:0.5rem; }
+.user-result { display:flex; gap:1rem; align-items:flex-start; padding:1rem; border:1px solid #eee; border-radius:8px; }
+.user-info h2 { margin:0 0 0.25rem 0; }
+.muted { color:#666; margin:0; }
