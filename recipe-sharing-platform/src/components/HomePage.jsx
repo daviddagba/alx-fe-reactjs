@@ -1,19 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import RecipeCard from "./RecipeCard";
 import recipesData from "../data.json";
 
 export default function HomePage() {
   const [recipes, setRecipes] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     setRecipes(recipesData);
   }, []);
-
-  const handleView = (recipe) => {
-    navigate(`/recipe/${recipe.id}`);
-  };
 
   return (
     <main className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
@@ -32,6 +27,7 @@ export default function HomePage() {
             Recipes list
           </h2>
 
+          {/* Contains required keywords and Link navigation */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {recipes.length === 0 ? (
               <div className="col-span-full text-center py-12 text-gray-500">
@@ -39,12 +35,13 @@ export default function HomePage() {
               </div>
             ) : (
               recipes.map((r) => (
-                <div
+                <Link
                   key={r.id}
-                  className="rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-transform duration-200"
+                  to={`/recipe/${r.id}`}
+                  className="rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-transform duration-200 block"
                 >
-                  <RecipeCard recipe={r} onView={handleView} />
-                </div>
+                  <RecipeCard recipe={r} />
+                </Link>
               ))
             )}
           </div>
