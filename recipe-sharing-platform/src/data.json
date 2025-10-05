@@ -3,30 +3,101 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/600x400?text=Spaghetti+Carbonara"
+    "image": "https://via.placeholder.com/800x600?text=Spaghetti+Carbonara",
+    "ingredients": [
+      "400g spaghetti",
+      "150g pancetta or bacon, diced",
+      "2 large eggs",
+      "100g Pecorino or Parmesan, grated",
+      "Freshly ground black pepper",
+      "Salt"
+    ],
+    "instructions": [
+      "Cook spaghetti in salted boiling water until al dente.",
+      "Fry pancetta until crispy, then remove from heat.",
+      "Beat eggs with grated cheese and a good pinch of pepper.",
+      "Drain pasta (reserve some cooking water) and return to pot.",
+      "Quickly toss pasta with egg-cheese mixture and pancetta, adding a splash of pasta water to create a creamy sauce.",
+      "Serve immediately with extra grated cheese and black pepper."
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/600x400?text=Chicken+Tikka+Masala"
+    "image": "https://via.placeholder.com/800x600?text=Chicken+Tikka+Masala",
+    "ingredients": [
+      "500g boneless chicken, cubed",
+      "1 cup plain yogurt",
+      "2 tbsp tikka masala spice mix",
+      "1 onion, chopped",
+      "400g canned tomatoes",
+      "200ml cream"
+    ],
+    "instructions": [
+      "Marinate chicken in yogurt and tikka spice for at least 1 hour.",
+      "Grill or pan-fry the chicken until cooked through and slightly charred.",
+      "Sauté onions, add tomatoes and simmer to make a sauce.",
+      "Stir in cream and return chicken to the sauce, simmer for 5 minutes.",
+      "Serve with rice or naan."
+    ]
   },
   {
     "id": 3,
     "title": "Vegetable Stir Fry",
     "summary": "Quick and healthy mixed vegetable stir-fry with soy sauce and sesame.",
-    "image": "https://via.placeholder.com/600x400?text=Vegetable+Stir+Fry"
+    "image": "https://via.placeholder.com/800x600?text=Vegetable+Stir+Fry",
+    "ingredients": [
+      "1 red bell pepper, sliced",
+      "1 carrot, julienned",
+      "100g broccoli florets",
+      "2 cloves garlic, minced",
+      "2 tbsp soy sauce",
+      "1 tbsp sesame oil"
+    ],
+    "instructions": [
+      "Heat oil in a wok and sauté garlic for 30 seconds.",
+      "Add vegetables and stir-fry over high heat until tender-crisp.",
+      "Add soy sauce and toss to coat.",
+      "Serve immediately with rice or noodles."
+    ]
   },
   {
     "id": 4,
     "title": "Chocolate Brownies",
     "summary": "Rich and fudgy chocolate brownies with a crackly top.",
-    "image": "https://via.placeholder.com/600x400?text=Chocolate+Brownies"
+    "image": "https://via.placeholder.com/800x600?text=Chocolate+Brownies",
+    "ingredients": [
+      "200g dark chocolate",
+      "175g butter",
+      "325g caster sugar",
+      "130g plain flour",
+      "3 eggs"
+    ],
+    "instructions": [
+      "Melt chocolate and butter together, then stir in sugar.",
+      "Add eggs one at a time, then fold in flour.",
+      "Bake in a preheated oven at 180°C (350°F) for 20–25 minutes.",
+      "Cool, cut into squares and serve."
+    ]
   },
   {
     "id": 5,
     "title": "Avocado Toast",
     "summary": "Creamy avocado smashed over toasted sourdough with chili flakes and lemon.",
-    "image": "https://via.placeholder.com/600x400?text=Avocado+Toast"
+    "image": "https://via.placeholder.com/800x600?text=Avocado+Toast",
+    "ingredients": [
+      "2 slices sourdough bread",
+      "1 ripe avocado",
+      "Lemon juice",
+      "Salt and pepper",
+      "Chili flakes (optional)"
+    ],
+    "instructions": [
+      "Toast the bread to your liking.",
+      "Mash avocado with lemon juice, salt and pepper.",
+      "Spread avocado over toast and sprinkle chili flakes if desired.",
+      "Serve immediately."
+    ]
   }
 ]

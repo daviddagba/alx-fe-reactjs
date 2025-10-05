@@ -1,12 +1,9 @@
-import React from 'react'
+import React from "react";
 
 export default function RecipeCard({ recipe, onView }) {
   return (
-    <article
-      className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200"
-      aria-labelledby={`recipe-${recipe.id}-title`}
-    >
-      <div className="h-48 sm:h-56 md:h-44 lg:h-48 overflow-hidden">
+    <article className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200">
+      <div className="h-48 overflow-hidden">
         <img
           src={recipe.image}
           alt={recipe.title}
@@ -16,10 +13,8 @@ export default function RecipeCard({ recipe, onView }) {
       </div>
 
       <div className="p-4">
-        <h3 id={`recipe-${recipe.id}-title`} className="text-lg font-semibold mb-1">
-          {recipe.title}
-        </h3>
-        <p className="text-sm text-gray-600 mb-3 line-clamp-3">{recipe.summary}</p>
+        <h3 className="text-lg font-semibold mb-1">{recipe.title}</h3>
+        <p className="text-sm text-gray-600 mb-3">{recipe.summary}</p>
 
         <div className="flex items-center justify-between">
           <button
@@ -33,5 +28,5 @@ export default function RecipeCard({ recipe, onView }) {
         </div>
       </div>
     </article>
-  )
+  );
 }

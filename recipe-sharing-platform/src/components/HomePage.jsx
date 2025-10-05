@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import RecipeCard from "./RecipeCard";
 import recipesData from "../data.json";
 
 export default function HomePage() {
   const [recipes, setRecipes] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setRecipes(recipesData);
   }, []);
 
   const handleView = (recipe) => {
-    alert(`Open recipe: ${recipe.title}`);
+    navigate(`/recipe/${recipe.id}`);
   };
 
   return (
@@ -30,7 +32,6 @@ export default function HomePage() {
             Recipes list
           </h2>
 
-          {/* Contains required keywords: grid-cols-1, md, hover, rounded, shadow */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {recipes.length === 0 ? (
               <div className="col-span-full text-center py-12 text-gray-500">
