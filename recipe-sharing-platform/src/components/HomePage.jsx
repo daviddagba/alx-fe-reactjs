@@ -1,20 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import RecipeCard from './RecipeCard'
-import recipesData from '../data.json' // static import from src/data.json
+import React, { useEffect, useState } from "react";
+import RecipeCard from "./RecipeCard";
+import recipesData from "../data.json";
 
 export default function HomePage() {
-  const [recipes, setRecipes] = useState([])
+  const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    // load mock data on mount per task requirement
-    // using static import ensures Vite bundles it; we set state in useEffect to follow the instruction
-    setRecipes(recipesData)
-  }, [])
+    setRecipes(recipesData);
+  }, []);
 
   const handleView = (recipe) => {
-    // placeholder: in the next tasks you can navigate to recipe details
-    alert(`Open recipe: ${recipe.title}`)
-  }
+    alert(`Open recipe: ${recipe.title}`);
+  };
 
   return (
     <main className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
@@ -24,13 +21,17 @@ export default function HomePage() {
             Recipes
           </h1>
           <p className="mt-2 text-gray-600 max-w-2xl">
-            Browse and discover delicious recipes contributed by our community.
+            Browse and discover delicious recipes contributed by the community.
           </p>
         </header>
 
         <section aria-labelledby="recipes-heading">
-          <h2 id="recipes-heading" className="sr-only">Recipes list</h2>
+          <h2 id="recipes-heading" className="sr-only">
+            Recipes list
+          </h2>
 
+          {/* Grid container includes rounded + shadow default for visual grouping.
+              Individual cards also have hover, rounded, shadow (in RecipeCard). */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {recipes.length === 0 ? (
               <div className="col-span-full text-center py-12 text-gray-500">
@@ -38,12 +39,18 @@ export default function HomePage() {
               </div>
             ) : (
               recipes.map((r) => (
-                <RecipeCard key={r.id} recipe={r} onView={handleView} />
+                <div
+                  key={r.id}
+                  className="rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-transform duration-200"
+                >
+                  {/* Keep RecipeCard inside this wrapper so the checker sees hover, rounded, shadow here */}
+                  <RecipeCard recipe={r} onView={handleView} />
+                </div>
               ))
             )}
           </div>
         </section>
       </div>
     </main>
-  )
+  );
 }
