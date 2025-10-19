@@ -30,9 +30,11 @@ describe("TodoList Component", () => {
 
   test("deletes a todo", () => {
     render(<TodoList />);
-    const todo = screen.getByText("Practice Testing");
-    const deleteButton = todo.nextSibling;
+    // ✅ find the delete button directly using test id
+    const deleteButton = screen.getByTestId("delete-Practice Testing");
     fireEvent.click(deleteButton);
-    expect(todo).not.toBeInTheDocument();
+
+    // ✅ ensure the todo is removed from the DOM
+    expect(screen.queryByText("Practice Testing")).not.toBeInTheDocument();
   });
 });
