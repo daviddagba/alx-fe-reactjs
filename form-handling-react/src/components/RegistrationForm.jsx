@@ -1,39 +1,47 @@
 // src/components/RegistrationForm.jsx
 import React, { useState } from "react";
 
-function RegistrationForm() {
+export default function RegistrationForm() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({});
   const [message, setMessage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const newErrors = {};
 
-    // Basic validation checks (strictly using required keywords)
+    // Basic validation logic (keep these exact keywords)
     if (!username) {
-      setMessage("Username is required");
-      return;
+      newErrors.username = "Username is required";
     }
     if (!email) {
-      setMessage("Email is required");
-      return;
+      newErrors.email = "Email is required";
     }
     if (!password) {
-      setMessage("Password is required");
+      newErrors.password = "Password is required";
+    }
+
+    setErrors(newErrors);
+
+    // Stop submission if there are errors
+    if (Object.keys(newErrors).length > 0) {
       return;
     }
 
-    // Simulate submission success
+    // Simulate API call or successful registration
     setMessage("Registration successful!");
     setUsername("");
     setEmail("");
     setPassword("");
+    setErrors({});
   };
 
   return (
     <div style={{ maxWidth: "400px", margin: "auto" }}>
       <h2>User Registration (Controlled Components)</h2>
+
       <form onSubmit={handleSubmit}>
         <div>
           <label>Username:</label>
@@ -42,6 +50,7 @@ function RegistrationForm() {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
+          {errors.username && <p style={{ color: "red" }}>{errors.username}</p>}
         </div>
 
         <div>
@@ -51,6 +60,7 @@ function RegistrationForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+          {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
         </div>
 
         <div>
@@ -60,6 +70,9 @@ function RegistrationForm() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          {errors.password && (
+            <p style={{ color: "red" }}>{errors.password}</p>
+          )}
         </div>
 
         <button type="submit">Register</button>
@@ -69,5 +82,3 @@ function RegistrationForm() {
     </div>
   );
 }
-
-export default RegistrationForm;
