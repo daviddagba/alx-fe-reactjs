@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  background: #f8f9fa;
+}
+
+input, button {
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  margin-top: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+label {
+  margin-top: 0.5rem;
+  display: block;
+}
