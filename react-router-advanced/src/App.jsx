@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -10,11 +10,12 @@ import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+
         <Route
           path="/profile/*"
           element={
@@ -23,10 +24,11 @@ function App() {
             </ProtectedRoute>
           }
         />
+
         <Route path="/posts/:postId" element={<Post />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </>
+    </BrowserRouter>
   );
 }
 
